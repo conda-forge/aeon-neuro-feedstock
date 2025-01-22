@@ -6,24 +6,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/aeon_neuro-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/aeon_neuro-{{ version }}.tar.gz
   sha256: 8510885223f466729339208c407c6bbf40f4a4c406301a45bbd8b129423e59c3
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8,<3.13
+    - python {{ python_min }}
     - setuptools >61
     - wheel
     - toml
     - python-build
     - pip
   run:
-    - python >=3.8,<3.13
+    - python >={{ python_min }},<3.13
     - aeon <0.11.0
     - mne
     - pyprep
@@ -35,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://aeon-neuro.readthedocs.io/
