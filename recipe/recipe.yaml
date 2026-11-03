@@ -1,0 +1,59 @@
+schema_version: 1
+
+context:
+  name: aeon-neuro
+  version: "0.1.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace("-","_") }}-${{ version }}.tar.gz
+  sha256: ef85bbb7249787a4e56bfbd9ca357242e026d06dcad98b3ad6028e163071fad9
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools >=84.0.0
+    - wheel
+    - toml
+    - python-build
+    - pip
+  run:
+    - python >=${{ python_min }},<3.14
+    - aeon >=1.0.0
+    - mne
+    - mne-bids
+    - pyprep
+    - pyriemann
+    - umap-learn
+    - pytorch
+    # braindecode is required upstream but is not available on conda-forge
+    # - braindecode
+
+tests:
+  - python:
+      imports:
+        - aeon_neuro
+      # pip check fails while braindecode is not a dependency
+      pip_check: false
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  summary: A package for EEG classification built on the aeon toolkit.
+  license: BSD-3-Clause
+  license_file: LICENSE
+  homepage: https://github.com/aeon-toolkit/aeon-neuro/
+  documentation: https://aeon-neuro.readthedocs.io/
+
+extra:
+  recipe-maintainers:
+    - MatthewMiddlehurst
