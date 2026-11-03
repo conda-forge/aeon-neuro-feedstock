@@ -1,18 +1,18 @@
 {% set name = "aeon-neuro" %}
-{% set version = "0.0.1" %}
+{% set version = "0.1.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/aeon_neuro-{{ version }}.tar.gz
-  sha256: 8510885223f466729339208c407c6bbf40f4a4c406301a45bbd8b129423e59c3
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/aeon_neuro-{{ version }}.tar.gz
+  sha256: 955cb583ca0940a88422cda84e6c1761f4093d31314261ba3d0eab3e10bfec2e
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
