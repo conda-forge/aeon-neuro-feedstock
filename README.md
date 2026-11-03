@@ -3,13 +3,13 @@ About aeon-neuro-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/aeon-neuro-feedstock/blob/main/LICENSE.txt)
 
-Home: https://aeon-neuro.readthedocs.io/
+Home: https://github.com/aeon-toolkit/aeon-neuro/
 
 Package license: BSD-3-Clause
 
-Summary: A package for ECG and EEG time series analysis built on the aeon toolkit.
+Summary: A package for EEG classification built on the aeon toolkit.
 
-Development: https://github.com/aeon-toolkit/aeon-neuro/
+Documentation: https://aeon-neuro.readthedocs.io/
 
 Current build status
 ====================
@@ -190,5 +190,4 @@ Feedstock Maintainers
 =====================
 
 * [@MatthewMiddlehurst](https://github.com/MatthewMiddlehurst/)
-* [@griegner](https://github.com/griegner/)
 
